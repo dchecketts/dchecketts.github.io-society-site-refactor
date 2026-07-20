@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "society-site-refactor",
   "type": "module",
   "version": "0.0.1",
   "engines": {
@@ -12,6 +12,12 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^7.1.0"
+    "@tailwindcss/vite": "^4.3.3",
+    "astro": "^7.1.0",
+    "octokit": "^5.0.5",
+    "tailwindcss": "^4.3.3"
+  },
+  "devDependencies": {
+    "@types/node": "^26.1.1"
   }
 }
