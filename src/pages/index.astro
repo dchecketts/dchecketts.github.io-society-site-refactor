@@ -2,18 +2,13 @@
 import '../styles/global.css';
 import BasicLayout from '../layouts/sitelayout.astro';
 import heroImage from '../assets/images/hero-banner.jpg';
-
-const heroImageUrl = heroImage.src
-
-const room = "STC Building 231";
-const day = "Wednesday";
-const time = "5:30 - 6:30 PM";
+import variables from '../assets/data/variables.json'
 ---
 
 <BasicLayout>
 	<section
 		id="hero-banner"
-		style={`--hero-bg: url(${heroImageUrl})`}
+		style={`--hero-bg: url(${heroImage.src})`}
 		class="bg-black bg-[linear-gradient(hsl(0_0%_0%/0.5)),var(--hero-bg)] bg-cover bg-center h-96 w-full flex"
 	>
 		<div class="md:w-1/4 px-5 md:px-0 md:pl-10 pb-5 flex flex-col-reverse">
@@ -49,8 +44,8 @@ const time = "5:30 - 6:30 PM";
 			<div id="society-info" class="bg-black text-white rounded-sm p-5 w-3/4">
 				<span class="font-bold">Information</span>
 				<ul class="list-disc pl-5">
-					<li><span class="font-bold">Where:</span> {room}</li>
-					<li><span class="font-bold">When:</span> {day} {time}</li>
+					<li><span class="font-bold">Where:</span> {variables.room}</li>
+					<li><span class="font-bold">When:</span> {variables.day} {variables.time}</li>
 				</ul>
 			</div>
 

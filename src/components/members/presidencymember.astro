@@ -1,5 +1,4 @@
 ---
-import danielImage from "../../assets/images/daniel-checketts.jpg";
 const token = import.meta.env.GITHUB_PAT;
 
 if (!token) {
@@ -33,10 +32,19 @@ try {
     profileData = data;
 } catch (error: any) {
     errorMsg = error.message;
+    console.log(`Error getting profile data for ${presidencyMember.login}: ${errorMsg}`)
+}
+
+let link;
+
+if (profileData?.blog != '') {
+    link = `https://${profileData?.blog}`;
+} else {
+    link = `https://github.com/${presidencyMember.login}`
 }
 ---
 
-<a href=`https://github.com/${presidencyMember.login}` class="flex md:flex-col md:items-center md:p-5 bg-white rounded-xl transition-all duration-300 ease-in-out hover:scale-110 shadow-md hover:shadow-lg mx-auto md:min-w-55">
+<a href={link} class="flex md:flex-col md:items-center md:p-5 bg-white rounded-xl transition-all duration-300 ease-in-out hover:scale-110 shadow-md hover:shadow-lg mx-auto md:min-w-55">
     <img src={profileData?.avatar_url} alt={profileData?.name} class="h-24 w-24 object-cover rounded-l-xl md:rounded-full"/>
     <div class="grow flex flex-col items-center justify-center">
         <h3 class="font-bold text-2xl">{presidencyMember.title}</h3>

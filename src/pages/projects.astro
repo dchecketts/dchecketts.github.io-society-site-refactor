@@ -3,72 +3,37 @@ import '../styles/global.css';
 import BasicLayout from '../layouts/sitelayout.astro';
 import heroImage from '../assets/images/projects.jpg';
 import ProjectCard from "../components/projects/projectcard.astro";
-
-const heroImageUrl = heroImage.src;
-
-const currentProjects = [
-    {
-        title: 'Run the UnderGrad',
-        url: 'https://runtheundergrad.org',
-        img: '/src/assets/images/undergrad-site.jpeg',
-        alt: 'Screenshot of the Undergrad running website',
-        desc: 'A professional website made for a local running company, featuring pages for events, photos from races, and frequently asked questions. Members of all levels of experience worked with HTML, CSS, and JavaScript.',
-        startDate: 'September 2025',
-        endDate: 'Ongoing',
-        contributors: []
-    },
-    {
-        title: 'Society Site',
-        url: '/',
-        img: '/src/assets/images/society-site.jpeg',
-        alt: 'Screenshot of the home page of this site',
-        desc: 'A modular Astro-powered website using GitHub API to list members, as well as events and current and past projects.',
-        startDate: 'September 2024',
-        endDate: 'Ongoing',
-        contributors: []
-    }
-]
-
-const pastProjects = [
-    {
-        title: 'Brother Shoaf\'s Site',
-        url: 'https://amhart02.github.io/musicportfolio/',
-        img: '/src/assets/images/music-portfolio.png',
-        alt: 'Screenshot of Brother Shoaf\'s music portfolio',
-        desc: 'Brother Shoaf is a music professor who we helped build a site for, showing off his projects, gallery, and other things.',
-        startDate: 'September 2024',
-        endDate: 'April 2025',
-        contributors: ['Alayna Hart', 'Ricky Vang']
-    },
-    {
-        title: 'Halloween Websites',
-        url: '/',
-        img: '/src/assets/images/halloween-homepage.jpeg',
-        alt: 'Halloween Site example',
-        desc: 'Halloween-themed sites were created in preparation for Halloween and to show to the high schoolers in Rexburg.',
-        startDate: 'October 2024',
-        endDate: 'October 2024',
-        contributors: ['Alex Dombroski', 'Ellie Talbot', 'Amitai Finlayson']
-    },
-]
+import currentProjects from "../content/projects/currentprojects.json"
+import pastProjects from "../content/projects/pastprojects.json"
 ---
 
 <BasicLayout title="BYUI WDD Society - Projects">
     <section
             id="hero-banner"
-            style={`--hero-bg: url(${heroImageUrl})`}
+            style={`--hero-bg: url(${heroImage.src})`}
             class="bg-black bg-[linear-gradient(hsl(0_0%_0%/0.5)),var(--hero-bg)] bg-cover bg-center h-96 w-full flex items-center justify-center"
     >
         <div class="flex flex-col gap-3 items-center text-white">
             <h1 class="font-bold text-6xl">Projects</h1>
-            <span class="text-center w-2/3 md:w-1/2">Some of the projects that members have worked on and are currently working on.</span>
+            <span class="text-center w-2/3 md:w-1/2">Some of the projects that members have done work on or are currently working on.</span>
         </div>
     </section>
 
     <section id="current-porjects" class="flex flex-col items-center py-5">
         <h2 class="font-bold text-4xl">Current Projects</h2>
         <ul class="flex flex-col items-center mx-10 md:mx-0 md:w-1/2">
-            {currentProjects.map((item) => (
+            <!-- Use currentprojects.json to populate the list of current projects -->
+            {currentProjects.map(
+                (item: {
+                     title: string;
+                     url: string;
+                     img: string;
+                     alt: string;
+                     desc: string;
+                     startDate: string;
+                     endDate: string;
+                     contributors: string[];
+                }) => (
                     <li><ProjectCard project={item} /></li>
             ))}
         </ul>
@@ -77,9 +42,20 @@ const pastProjects = [
     <section id="past-projects" class="flex flex-col items-center py-5">
         <h2 class="font-bold text-4xl">Past Projects</h2>
         <ul class="flex flex-col items-center mx-10 md:mx-0 md:w-1/2">
-            {pastProjects.map((item) => (
-                <li><ProjectCard project={item} /></li>
-            ))}
+            <!-- Use pastprojects.json to populate the list of current projects -->
+            {pastProjects.map(
+                (item: {
+                    title: string;
+                    url: string;
+                    img: string;
+                    alt: string;
+                    desc: string;
+                    startDate: string;
+                    endDate: string;
+                    contributors: string[];
+                }) => (
+                        <li><ProjectCard project={item} /></li>
+                ))}
         </ul>
     </section>
 </BasicLayout>
