@@ -3,6 +3,8 @@ import '../styles/global.css';
 import BasicLayout from '../layouts/sitelayout.astro';
 import heroImage from '../assets/images/hero-banner.jpg';
 import variables from '../assets/data/variables.json'
+
+const BASE_URL = import.meta.env.BASE_URL;
 ---
 
 <BasicLayout>
@@ -15,7 +17,7 @@ import variables from '../assets/data/variables.json'
 			<div class="bg-gray-50 rounded-sm h-fit p-5 shadow-md flex flex-col gap-3">
 				<span class="text-bold text-2xl text-center md:text-left">Build Websites</span>
 				<p>Improve your skills. Build personal websites to showcase yourself and your projects. Learn new technologies and develop alongside your peers.</p>
-				<a href="/members" class="bg-black text-white hover:bg-gray-800 rounded-full px-3 py-2 self-center">Meet the Society</a>
+				<a href=`${BASE_URL}/members` class="bg-black text-white hover:bg-gray-800 rounded-full px-3 py-2 self-center">Meet the Society</a>
 			</div>
 		</div>
 		<div class="md:w-3/4"></div>
