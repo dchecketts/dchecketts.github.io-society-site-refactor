@@ -11,7 +11,7 @@
   },
   {
     "title": "Society Site",
-    "url": "/",
+    "url": "/society-site-refactor",
     "img": "/src/assets/images/society-site.jpeg",
     "alt": "Screenshot of the home page of this site",
     "desc": "A modular Astro-powered website using GitHub API to list members, as well as events and current and past projects.",

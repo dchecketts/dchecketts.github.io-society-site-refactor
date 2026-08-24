@@ -15,7 +15,7 @@ const { member } = Astro.props;
 let link;
 
 if (member.site != '') {
-    link = `https://${member.site}`;
+    link = `${member.site}`;
 } else {
     link = `https://github.com/${member.login}`
 }
