@@ -1,10 +1,4 @@
 ---
-const token = import.meta.env.GITHUB_PAT;
-
-if (!token) {
-    throw new Error("Missing organization token environment variable!");
-}
-
 type Member = {
     login: string;
     name: string | null;

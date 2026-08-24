@@ -1,9 +1,4 @@
 ---
-const token = import.meta.env.GITHUB_PAT;
-
-if (!token) {
-    throw new Error("Missing organization token environment variable!");
-}
 
 type PresidencyMember = {
     title: string;
@@ -18,9 +13,7 @@ const { presidencyMember } = Astro.props;
 
 import { Octokit } from 'octokit';
 
-const octokit = new Octokit({
-    auth: token
-})
+const octokit = new Octokit()
 
 let profileData = null;
 let errorMsg = null;
