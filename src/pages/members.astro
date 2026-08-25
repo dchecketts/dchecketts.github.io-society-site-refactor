@@ -8,7 +8,7 @@ import {Octokit} from "octokit";
 import MemberCard from "../components/members/membercard.astro";
 import * as fs from "node:fs";
 
-const token = import.meta.env.GITHUB_PATs;
+const token = import.meta.env.GITHUB_PAT;
 
 let listOfMemberInformation = [];
 let errorMsg = null;

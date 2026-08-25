@@ -23,17 +23,26 @@ try {
         username: presidencyMember.login
     });
     profileData = data;
+
 } catch (error: any) {
     errorMsg = error.message;
     console.log(`Error getting profile data for ${presidencyMember.login}: ${errorMsg}`)
+
 }
 
 let link;
 
 if (profileData?.blog != '') {
-    link = `https://${profileData?.blog}`;
+    if (profileData?.blog?.includes("https://")) {
+        link = `${profileData?.blog}`;
+
+    } else {
+        link = `https://${profileData?.blog}`
+    }
+
 } else {
     link = `https://github.com/${presidencyMember.login}`
+
 }
 ---
 
