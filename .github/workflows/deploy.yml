@@ -2,8 +2,8 @@ name: Deploy Astro Subpath Site
 
 on:
   push:
-    branches: [ main ] # Triggers whenever you push changes to main
-  workflow_dispatch:   # Allows manual triggers from the Actions tab
+    branches: [ main ]
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -15,10 +15,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4 # Upgraded to v4 for modern Node stability
 
       - name: Build and Upload Site Assets
-        uses: withastro/action@v3 # Automatically resolves dependencies and runs astro build
+        uses: withastro/action@v6 # Upgraded to v6 for modern Node environments
 
   deploy:
     needs: build
